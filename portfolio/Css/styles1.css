@@ -1,0 +1,96 @@
+
+.navbar-brand:hover{
+  transition: 00.5s;
+  font-size: 1.6em;
+  text-shadow:0 0px 0 #ccc, 0 1px 2px #ccc;
+}
+.top-div {
+  background-color: #A1CAE2;
+  /* background-color: #F4F9F9; */
+  /* background-color: #E4FBFF; */
+  text-align: center;
+  display: flex;
+  /* border: 5px solid #292c6d; */
+  border: 5px solid #22577e;
+  border-bottom: dotted;
+}
+.my-name {
+  margin-top: 3%;
+  font-family: "Dancing Script", cursive;
+  flex-basis: 70%;
+  text-align: center;
+  color: #22577e;
+}
+.name {
+  font-size: 5rem;
+}
+.site {
+  font-size: 3rem;
+}
+.my-img {
+  border: 5px solid #5584ac;
+  border-radius: 300px;
+  width: 15%;
+  height: 15%;
+  margin: 2% 5% 0% 5%;
+  flex-basis: 20%;
+}
+.my-img:hover{
+  margin-bottom: 2%;
+  transition: 0.5s;
+  width: 20%;
+}
+.stickers {
+  flex-basis: 30%;
+}
+.sticker {
+  border: 3px solid #5584ac;
+  border-radius: 300px;
+  width: 30%;
+  /* flex-wrap:wrap; */
+  margin: 8%;
+}
+.sticker:hover{
+  transition: 0.5s;
+  width: 35%;
+}
+
+.middle-div {
+  margin: 0;
+  background-color: #E4FBFF;
+  /* background-color: #95D1CC; */
+  
+  /* background-color: #F4F9F9; */
+  padding: 2%;
+  padding-top: 1%;
+  /* border: 4px solid #292c6d; */
+  border: 4px solid #22577e;
+  border-top-width: 0;
+  border-bottom-width: 0;
+  font-size: large;
+  font-family: "EB Garamond", serif;
+}
+.skills{
+  display: flex;
+}
+.carrer,.other{
+  flex-grow: 1;
+  /* margin: auto; */
+}
+/* .foot{
+  border-top: 0;
+} */
+
+.description {
+  font-size: large;
+}
+
+.dev-icon-link {
+  /* border: 4px solid #292c6d; */
+  border: 4px solid #22577e;
+  border-top: 0;
+  justify-content: center;
+  color: aliceblue;
+  background-color: #01000c;
+  display: flex;
+}

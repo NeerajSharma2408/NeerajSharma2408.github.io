@@ -1,0 +1,13 @@
+
+.pro-content{
+  margin: 5%;
+  margin: 4%;
+  color: #FEFBF3;
+  font-size: larger;
+  font-family: 'Courier New', Courier, monospace;
+}
+.hr-tag{
+  border:3px dotted; 
+  border-top: 0; 
+  margin-right:2.5% !important;
+}
