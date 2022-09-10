@@ -1,0 +1,597 @@
+html{
+    position: relative;
+    min-height: 100%;
+    font-family: Calibri, 'Gill Sans', 'Gill Sans MT',  'Trebuchet MS', sans-serif;
+    /* font-family: Neue Haas Grotesk; */
+}
+
+body::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+}
+/* can also make a custom scrollbar */
+
+body{
+    margin: 0%;
+    margin-bottom: 120px;
+    scrollbar-width: 0;
+}
+
+/* header css */
+header{
+    display: flex;
+    background-color: #abdca7;
+    padding: 10px;
+}
+#head_logo{
+    /* flex-grow: 1; */
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    padding: 4px;
+    image-resolution: 10dpi;
+}
+#top_head{
+    flex-grow: 5;
+    text-align: center;
+    margin: auto;
+    margin-right: 10px;
+    /* color: #323232; */
+    color: #248e38;
+    /* color: #afd91a; */
+    /* color: #abdca7; */
+}
+#head_div{
+    flex-grow: 1;
+    padding-top: 10px;
+}
+
+#reg_head{
+    text-align: center;
+}
+
+#infoB{
+    display: none;
+}
+/* #regButton{
+    display: none;
+} */
+
+
+/* main body css */
+
+/* body head area */
+#note{
+    padding: 5px;
+    margin: 5px;
+}
+
+#mainbody{
+    margin: 5px 40px 5px 40px;
+}
+#bodyhead h2{
+    display: flex;
+}
+#mainicon{
+    width: 50px;
+    height: 50px;
+    margin: auto 0;
+}
+#bodyhead h2 p{
+    margin-left: 20px;
+    text-align: center;
+    color: #248e38;
+}
+
+/* ----- input area ----- */
+
+#inputarea{
+    margin-top: 30px;
+    padding: 20px 50px;
+    border: solid 1px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+/* #inputarea hr{
+    width: 90%;
+    margin: 10px auto;
+    align-self:center;
+} */
+#infobuttons{
+    display: flex;
+}
+#infobuttons button{
+    flex-grow: 1;
+    padding: 10px;
+}
+
+/* --- Basic div --- */
+#basicdiv{
+    width: 100%;
+    height: 300px;
+    text-align: center;
+}
+#basicdiv h3{
+    padding: 20px;
+}
+#basicdiv div{
+    display: flex;
+}
+#basicdiv div label{
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    margin: auto 20px;
+}
+#basicdiv div select{
+    padding: 10px;
+    width: 100%;
+}
+#basicdiv button{
+    width: 20%;
+    padding: 5px;
+    margin: auto 40%;
+    margin-top: 0px;
+    /* background-color: #fff; */
+}
+
+/* --- Income details div --- */
+#incomediv{
+    width: 100%;
+    height: 280px;
+    text-align: center;
+    overflow-y: scroll;
+    margin-top: 18px;
+}
+#incomediv::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+}
+#incomediv h3{
+    margin: auto;
+    padding: 20px;
+}
+#incomediv #mainsalary,#othersources{
+    margin: 10px;
+}
+#mainsalary a{
+    text-decoration: none;
+    color: black;
+}
+#othersources a{
+    text-decoration: none;
+    color: black;
+}
+#incomediv div div div{
+    display: flex;
+}
+.expanddiv{
+    background-color: grey;
+    border-radius: 5px;
+}
+.expanddiv p{
+    padding: 10px;
+}
+.expanddiv:hover{
+    cursor: pointer;
+}
+#field1 div{
+    margin: 10px;
+}
+#field1 div b{
+    margin: auto;
+    margin-right: 2px;
+}
+#field1 div label{
+    margin: 5px;
+    flex-grow: 1;
+}
+#field1 div input{
+    margin: 5px;
+    margin-right: 15px;
+    width: 30%;
+}
+#field2 div{
+    margin: 15px;
+}
+#field2 div b{
+    margin: auto;
+    margin-right: 2px;
+}
+#field2 div label{
+    margin: 5px;
+    flex-grow: 1;
+    
+}
+#field2 div input{
+    margin: 5px;
+    margin-right: 15px;
+    width: 30%;
+}
+.star{
+    color:red;
+    margin-top: 3px;
+}
+#submit{
+    width: 20%;
+    padding: 5px;
+    margin: auto 40%;
+    /* margin-top: 10px; */
+    /* background-color: #fff; */
+}
+#next{
+    height: 30px;
+    width: 12%;
+    margin: auto 44%;
+}
+
+/* --- Deductions div --- */
+#deductiondiv{
+    width: 100%;
+    height: 280px;
+    text-align: center;
+    overflow-y: scroll;
+    margin-top: 18px;
+}
+#deductiondiv::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+}
+#deductiondiv h3{
+    margin: auto;
+    padding: 20px;
+}
+
+#deductiondiv a{
+    text-decoration: none;
+    color: black;
+}
+
+#deductiondiv div{
+    margin: 10px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+#deductiondiv div div{
+    display: flex;
+}
+#deductiondiv div div label{
+    flex-grow: 1;
+}
+#deductiondiv div div input{
+    margin: auto;
+    margin-right: 15px;
+    /* flex-grow: 1; */
+}
+#deductiondiv div b{
+    margin: auto;
+    margin-right: 2px;
+}
+.radioDiv{
+    display: flex;
+}
+.radioDiv div{
+    flex-grow: 1;
+    justify-content: center;
+}
+.radioDiv div label{
+    text-align: left;
+}
+.deductionHeads{
+    background-color: grey;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+#buttonD{
+    width: 20%;
+    padding: 5px;
+    margin: auto 40%;
+    margin-top: 15px;
+    /* margin-top: 10px; */
+    /* background-color: #fff; */
+}
+.nextB{
+    width: 12%;
+    padding: 5px;
+    margin: auto 44%;
+    margin-top: 15px;
+    /* margin-top: 10px; */
+    /* background-color: #fff; */
+}
+
+/* --- Exemptions div --- */
+#exemptiondiv{
+    width: 100%;
+    height: 280px;
+    text-align: center;
+    overflow-y: scroll;
+    margin-top: 18px;
+}
+#exemptiondiv::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+}
+#exemptiondiv h3{
+    margin: auto;
+    padding: 20px;
+}
+#head{
+    margin: 5px;
+    padding: 10px;
+}
+.efieldsCity label{
+    margin-right: 50px;
+    margin-left: 5px;
+}
+.efieldsCity input{
+    margin-right: 0px;
+}
+.efields{
+    display: flex;
+    margin: 20px;
+}
+.ehra div{
+    margin: 20px;
+    display: flex;
+}
+.efields label{
+    margin: auto;
+    /* flex-grow: 2; */
+    /* margin-left: 0; */
+}
+.efields input{
+    width: 30%;
+    margin-right: 30px;
+    /* flex-grow: 1; */
+}
+.efieldsCity{
+    display: flex;
+}
+.efieldsCity div{
+    flex-grow: 1;
+    margin: auto 10px;
+}
+.efieldsCity label{
+    flex-grow: 5;
+    margin: auto 10px;
+}
+#exemptiondiv div b{
+    margin-right: 5px;
+}
+#exemptiondiv button{
+    width: 20%;
+    padding: 5px;
+    margin: auto 40%;
+    /* margin-top: 10px; */
+    /* background-color: #fff; */
+}
+
+/* Deductions and exemptions */
+#DeductionsnExemptionsdiv{
+    width: 100%;
+    height: 280px;
+    text-align: center;
+    overflow-y: scroll;
+    margin-top: 18px;
+}
+#DeductionsnExemptionsdiv::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+}
+#DeductionsnExemptionsdiv h3{
+    margin: auto;
+    padding: 20px;
+}
+.DnE{
+    margin: 10px;
+    display: flex;
+    padding: 10px;
+}
+.DnE label{
+    flex-grow: 1;
+}
+.DnE input{
+    margin: auto 40px;
+    margin-left: 5px;
+    width: 30%;
+}
+#DeductionsnExemptionsdiv button{
+    width: 20%;
+    padding: 5px;
+    margin: 20px 40%;
+    /* margin-top: 10px; */
+    /* background-color: #fff; */
+}
+
+/* calculate tax button */
+#taxButton{
+    padding: 10px;
+    width: 60%;
+    margin: 10px 20%;
+}
+
+/* tax area */
+#taxArea{
+    margin-top: 20px;
+    text-align: center;
+    border: solid 1px;
+    border-radius: 5px;
+    padding-bottom: 20px;
+}
+#taxArea div{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.taxFields strong{
+    flex-grow: 1;
+    margin: auto 20px;
+}
+.taxFields input{
+    margin: auto;
+    margin-left: 10px;
+    margin-right: 30px;
+    width: 25%;
+}
+
+/* footer */
+footer{
+    display: flex;
+    position: absolute;
+    /* width: 100%; */
+    height: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #abdca7;
+    /* overflow: hidden; */
+    /* due to this the dropup menu was not visible */
+}
+#portfoliolink{
+    flex-grow: 1;
+    text-align: center;
+    margin: auto 10px;
+}
+#portfoliolink a{
+    text-decoration: none;
+}
+#maillink{
+    flex-grow: 4;
+    text-align: center;
+    margin: auto 10px;
+}
+#maillink a{
+    text-decoration: none;
+}
+#linksdiv{
+    flex-grow: 1;
+    text-align: center;
+    margin: auto;
+    /* display: block; */
+    z-index: 1;
+}
+#links{
+    position: absolute;
+    display: none;
+    bottom: 80px;
+    right: 0px;
+    z-index: 1;
+    background-color: #abdca7;
+    border: groove;
+    border-bottom: none;
+}
+#links a{
+    display: block;
+    padding: 4px;
+    text-decoration: none;
+    color: black;
+    background-color: #abdca7;
+    border-bottom: groove;
+}
+#atbbutton{
+    border: none;
+    width: 100%;
+    height: 80px;
+    background-color: #85BB53;
+    font-size: large;
+}
+#linksdiv:hover #links{
+    display: block;
+}
+/* #links #a1:hover #links #a1{
+    border:dashed;
+}
+#links #a1:hover + #links, #links #a1:hover{
+    border: dashed;
+    background-color: #fff;
+} */
+#links a:hover + #links, #links a:hover{
+    background-color: beige;
+}
+
+
+
+/* testing area */
+/* --- */
+/* #basicdiv,#incomediv,#deductiondiv,#exemptiondiv {
+    display: none;
+    width: 200px;
+    height: 200px;
+    background: red;
+    -webkit-animation: fadeinout 1s linear forwards;
+    animation: fadeinout 1s linear forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeinout {
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+      display: none;
+    }
+  } */
+/* #inputarea div{
+    display: none;
+} */
+/* this does not work with the above given css */
+
+
+
+/* make css better */
+
+/* @media (max-width: 650px) {
+    #head_div{
+        margin: auto;
+    }
+    #head_option{
+        display: none;
+        margin-top: 10px;
+    }
+    #head_option div{
+        text-align: center;
+        padding: 5px;
+    }
+
+    #reg_head{
+        display: none;
+    }
+    #head_div{
+        text-align: center;
+    }
+    #reg{
+        padding: 5px 5px;
+    }
+    #regButton{
+        display: flex;
+    }
+
+    #infoB{
+        display: block;
+        text-align: center;
+    }
+    #infoB button{
+        padding: 5px 20px 5px 20px;
+    }
+    #infobuttons{
+        margin-top: 10px;
+        display: none;
+    }
+    #button1{
+        display: none;
+    }
+    #button7{
+        display: none;
+    }
+
+    #basicdiv{
+        height: 450px;
+    }
+
+    #maillink{
+        display: none;
+    }
+} */

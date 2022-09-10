@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="/index.css">
+
+    <title>Do My Taxes</title>
+</head>
+<body>
+    <!-- header of the site -->
+    <header>
+        <img id = "head_logo" src="/money-bag.png" alt="Logo">
+
+        <h1 id = "top_head"><u>Do My Taxes - Your On The Go Tax Calculator</u></h1>
+
+        <div id="head_div">
+            <div id="regButton">
+                <button id="reg" onclick="toggleRegime()"><strong>Regime&#8595</strong></button>
+            </div>
+            <form action="" id = "head_option">
+
+                <div id="reg_head"><b>Select your Tax Regime</b></div>
+                <div>
+                    <input type="radio" name="Regime" id="oldregime"
+                    value="a"
+                    checked 
+                    onclick="changereg()">
+                    Old Regime
+                </div>
+                <div>
+                    <input type="radio" name="Regime" id="newregime" 
+                    value="b" onclick="changereg()">
+                    New Regime
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <!-- main body(input and output area) -->
+    <div id="mainbody">
+
+        <div id="bodyhead">
+            
+            <h2>
+                <img id="mainicon" src="/budget.png" alt="Icon">
+                <p>Do my Taxes --- A Tax Calculator Website</p>
+            </h2>
+            <hr>
+            <p>
+                This is a Tax Calculating site which will help you with calculating your tax in some few easy steps. Fill the below given fields and obtain your Tax amount.
+                <br>
+                <br>
+                <strong>
+                    *** PLEASE MAKE SURE TO CLICK THE SUBMIT BUTTON AFTER GIVING YOUR DETAILS. ***
+                </strong>
+            </p>
+        </div>
+        <hr>
+
+        <div id="inputarea">
+            <!-- <form action="" onsubmit="myjsfunc();return false">
+                onclick="myjsfunc()" this is not of much use than the onsubmit listener-->
+                <!-- &#8377 --- ruppee symbol -->
+                <!-- <input type="number" min = 0 placeholder="0" name="number" id="number">
+            </form> -->
+
+            <hr>
+            <div id="infoB">
+                <button onclick="displayInfoButtons()">Details Panels</button>
+            </div>
+            <div id="infobuttons">
+                <button id="button1"class="infoButtons" onclick="changeInputWindow(-1)">&lt&lt&lt</button>
+                <button id="button2"class="infoButtons" onclick="changeInputWindow(0)">Basic Details</button>
+                <button id="button3"class="infoButtons" onclick="changeInputWindow(1)">Income Details</button>
+                <button id="button4"class="infoButtons" onclick="changeInputWindow(2)">Deductions</button>
+                <button id="button5"class="infoButtons" onclick="changeInputWindow(3)">Exemptions</button>
+                <button id="button6"class="infoButtons" onclick="changeInputWindow(2)">Deductions & Exemptions</button>
+                <button id="button7"class="infoButtons" onclick="changeInputWindow(4)">&gt&gt&gt</button>
+            </div>
+            
+            <!-- <div id="infowindow">
+
+            </div> -->
+
+            <!-- <div id="maindiv" onclick="changeInputWindow()">
+                <p>maindiv</p>
+            </div> -->
+            <hr>
+
+            <!-- basic details page -->
+            <div id="basicdiv">
+                <h3><em><u>Basic Information Details</u></em></h3>
+                <form action=""  onsubmit="inputBasicDetails(); return false">
+                    <div>
+                        <label for="residence">Residence:</label>
+                        <select name="residence" id="residence">
+                            <option value="r">Resident</option>
+                            <option value="o">Resident Not Ordinarily Resident</option>
+                            <option value="n">Non-resident</option>
+                        </select>
+                    </div>
+                    <br>    <!-- line break -->
+                    <div>
+                        <label for="age">Age:</label>
+                        <select name="age" id="age">
+                            <option value="1">Below 60</option>
+                            <option value="2">60-80</option>
+                            <option value="3">Above 80</option>
+                        </select>
+                    </div>
+                    <div id="note">
+                        <strong>***If under Not Ordinarily Resident  or Non-resident You Will be charged only on your Indian Income. Hence Only enter your Income Details Concerned with India.***</strong>
+                    </div>
+                    <br>    <!-- line break -->
+                    <button type="submit" >Submit</button>
+                </form>
+            </div>
+
+            <!-- Income details -->
+            <div id="incomediv">
+                <h3><em><u>Income Details</u></em></h3>
+                <form action="" onsubmit="inputIncomeDetails(); return false">
+
+                    <div id="mainsalary">
+                        <a href="#mainsalary">
+                            <div onclick="expand(1)" class="expanddiv">
+                            <p class="expandp">Main Income Source (/month) &#8593</p>
+                            </div>
+                        </a>
+                        <div id="field1">
+                            <div>
+                                <label for="salary">Basic Salary <b class="star">*</b>:</label>
+                                <b>&#8377</b> <input type="number" name="salary" id="salary" placeholder="0" min = 0>
+                            </div>
+                            <div>
+                                <label for="hra">HRA (House Rent Allowance):</label>
+                                <b>&#8377</b> <input type="number" name="hra" id="hra" placeholder="0" min = 0>
+                            </div>
+                            <div>
+                                <label for="lta">LTA (Leave Travel Allowance):</label>
+                                <b>&#8377</b> <input type="number" name="lta" id="lta" placeholder="0" min = 0>
+                            </div>
+                            <div>
+                                <label for="otherAllowances">Other Allowances: </label>
+                                <b>&#8377</b> <input type="number" name="otherAllowances" id="otherAllowances" placeholder="0" min = 0>
+                            </div>
+                            <button id="next" onclick="expand(1);expand(2); return false">NEXT</button>
+                        </div>
+                    </div>
+
+                    <div id="othersources">
+                        <a href="#othersources">
+                            <div onclick="expand(2)" class="expanddiv">
+                            <p class="expandp">Other Income Source &#8593</p>
+                            </div>
+                        </a>
+                        <div id="field2">
+                            <div>
+                                <label for="ltcg">Long Term Capital Gains: </label>
+                                <b>&#8377</b> <input type="number" name="ltcg" id="ltcg" placeholder="0" min = 0>
+                            </div>
+                            <div>
+                                <label for="bussinessprofits">Business Profits: </label>
+                                <b>&#8377</b> <input type="number" name="bussinessprofits" id="bussinessprofits" placeholder="0" min = 0>
+                            </div>
+                            <div>
+                                <label for="interest">Interest Earned from Savings Acc: </label>
+                                <b>&#8377</b> <input type="number" name="interest" id="interest" placeholder="0" min = 0>
+                            </div>
+                            <div>
+                                <label for="otherIncome">Other Income (Eg:Rental income): </label>
+                                <b>&#8377</b> <input type="number" name="otherIncome" id="otherIncome" placeholder="0" min = 0>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button id="submit" type="submit" >Submit</button>
+                </form>
+            </div>
+
+
+            
+            <!-- no need of the immediate below task --- just look in the new Website -->
+            <!-- make a single panel for Deductions and Exemptions -->
+
+            <!-- also make animations to make it seem that the fileds inside the panels are unfolding themselves -->
+
+            <!-- on entering in the fields the cursor must move to the next field -->
+            
+            <!-- // also remember that at the end panel the user can also arrive just with the help of panel buttons, so check if the salary and all the basic and necessary details have been submitted before calculating the tax -->
+
+
+
+            <!-- Deduction Details -->
+            <div id="deductiondiv">
+                <h3><em><u>Deduction Details</u></em></h3>
+                <form action="" onsubmit="inputDeductions(); return false">
+                    <!-- <div class="deductionHeads deductionField1" onclick = "changeDeductionPanels(1)">
+                        <strong>80C &#8593</strong>
+                    </div> -->
+
+                    <div id="block1">
+                        <a href="#block1">
+                            <div class="deductionHeads deductionField1" onclick = "changeDeductionPanels(1)">
+                                <strong>80C &#8593</strong>
+                            </div>
+                        </a>
+                        <div id="ATC">
+                            <div class="radioDiv">
+                                    <div>
+                                        <strong>
+                                            Employment Type :
+                                        </strong>
+                                    </div>
+                                    <!-- put it either in strong or lable tag -->
+                                    <div>
+                                        <input type="radio" name="employment" id="employees" onclick="employeeStatus()"
+                                        checked>
+                                        <label for="employment">Employee</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="employment" id="semployees" onclick="employeeStatus()">
+                                        <label for="employment">Self-Employed</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="ppf">Public Provident Fund (PPF) :</label>
+                                    <b>&#8377</b>
+                                    <input type="number" name="ppf" id="ppf" placeholder="0" min = 0>
+                                </div>
+                                <div>
+                                    <label for="nsc">National Saving Certificate (NSC) :</label>
+                                    <b>&#8377</b>
+                                    <input type="number" name="nsc" id="nsc" placeholder="0" min = 0>
+                                </div>
+                                <div>
+                                    <label for="nps">National Pension Scheme (NPS) :</label>
+                                    <b>&#8377</b>
+                                    <input type="number" name="nps" id="nps" placeholder="0" min = 0>
+                                </div>
+                                <div>
+                                    <label for="epf">Employees' Provident Fund (EPF) :</label>
+                                    <b>&#8377</b>
+                                    <input type="number" name="epf" id="epf" placeholder="0" min = 0>
+                                </div>
+                                <div>
+                                    <label for="lip">Life Insurance Premium :</label>
+                                    <b>&#8377</b>
+                                    <input type="number" name="lip" id="lip" placeholder="0" min = 0>
+                                </div>
+                                <div>
+                                    <label for="pobd">Post Office/Bank Deposits (Min->5 years) :</label>
+                                    <b>&#8377</b>
+                                    <input type="number" name="pobd" id="pobd" placeholder="0" min = 0>
+                                </div>
+                                <div>
+                                    <label for="elss">Equity-Linked Saving Scheme (ELSS) :</label>
+                                    <b>&#8377</b>
+                                    <input type="number" name="elss" id="elss" placeholder="0" min = 0>
+                                </div>
+                                <div>
+                                    <label for="ssy">Sukanya Samriddhi Yojana (SSY) :</label>
+                                    <b>&#8377</b>
+                                    <input type="number" name="ssy" id="ssy" placeholder="0" min = 0>
+                                </div>
+                                <div>
+                                    <label for="scss">Senior Citizen Savings Scheme (SCSS) :</label>
+                                    <b>&#8377</b>
+                                    <input type="number" name="scss" id="scss" placeholder="0" min = 0>
+                                </div>
+                                <div>
+                                    <label for="ap">Annuity Plan (Only Contribution Made*) :</label>
+                                    <b>&#8377</b>
+                                    <input type="number" name="ap" id="ap" placeholder="0" min = 0>
+                                </div>
+                                <div>
+                                    <label for="oi">Other Investments :</label>
+                                    <b>&#8377</b>
+                                    <input type="number" name="oi" id="oi" placeholder="0" min = 0>
+                                </div>
+                            <button class="nextB" onclick="changeDeductionPanels(1); changeDeductionPanels(2);return false">NEXT</button>
+                        </div>
+                    </div>
+
+                    <div id="block2">
+                        <a href="#block2">
+                            <div class="deductionHeads deductionField2" onclick = "changeDeductionPanels(2)">
+                                <strong>80D &#8593</strong>
+                            </div>
+                        </a>
+                        <div id="ATD">
+                            <div>
+                                <label for="hip">Health Insurance Premium Paid :</label>
+                                <b>&#8377</b>
+                                <input type="number" name="hip" id="hip" placeholder="0" min = 0>
+                            </div>
+                            <div  class="radioDiv">
+                                <div>
+                                    <strong>
+                                        Parents age :
+                                    </strong>
+                                </div>
+                                <!-- put it either in strong or lable tag -->
+                                <div>
+                                    <input type="radio" name="ParentAge" id="lt60" onclick="checkParentAge()">
+                                    <label for="ParentAge">&#60= 60</label>
+                                </div> 
+                                <div>
+                                    <input type="radio" name="ParentAge" id="gt60" onclick="checkParentAge()">
+                                    <label for="ParentAge">&#62 60</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="ParentAge" id="NA" onclick="checkParentAge()" checked>
+                                    <label for="ParentAge">(NA)</label>
+                                </div>
+                            </div>
+                            <div  class="radioDiv">
+                                <div>
+                                    <strong>
+                                        Individual with dependent members :
+                                    </strong>
+                                </div>
+                                <!-- put it either in strong or lable tag -->
+                                <div>
+                                    <input type="radio" name="dependent" id="yesD" onclick="checkDependency(); changeDependentdiv()">
+                                    <label for="dependent">YES</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="dependent" id="noD" checked onclick="checkDependency()">
+                                    <label for="dependent">NO</label>
+                                </div>
+                            </div>
+                            <div id="dependentDiv">
+                                <div>
+                                    <label for="mtd">Medical Treatment of Dependent :</label>
+                                    <b>&#8377</b>
+                                    <input type="number" name="mtd" id="mtd" placeholder="0" min = 0>
+                                </div>
+                                <div  class="radioDiv">
+                                    <div>
+                                        <strong>
+                                            Type of Disability :
+                                        </strong>
+                                    </div>
+                                    <!-- put it either in strong or lable tag -->
+                                    <div>
+                                        <input type="radio" name="disability" id="parent" onclick="checkDisability()">
+                                        <label for="disability">Illness (For Parents)</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="disability" id="fttAt" checked onclick="checkDisability()">
+                                        <label for="disability">40-80% Disable</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="disability" id="gt80" onclick="checkDisability()">
+                                        <label for="disability">Greater Than 80% Disable</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="nextB" onclick="changeDeductionPanels(2); changeDeductionPanels(3);return false">NEXT</button>
+                        </div>
+                    </div>
+
+                    <div id="block3">
+                        <a href="#block3">
+                            <div class="deductionHeads deductionField3" onclick = "changeDeductionPanels(3)">
+                                <strong>Other Deduction &#8593</strong>
+                            </div>
+                        </a>
+                        <div id="OtherDeductions">
+                            <div>
+                                <label for="ipel">Interest Paid on Education Loans :</label>
+                                <b>&#8377</b>
+                                <input type="number" name="ipel" id="ipel" placeholder="0" min = 0>
+                            </div>
+                            <div>
+                                <label for="iphl">Interest Paid on Home Loans :</label>
+                                <b>&#8377</b>
+                                <input type="number" name="iphl" id="iphl" placeholder="0" min = 0>
+                            </div>
+                            <div>
+                                <label for="cc">Charitable Contributions :</label>
+                                <b>&#8377</b>
+                                <input type="number" name="cc" id="cc" placeholder="0" min = 0>
+                            </div>
+                            <div>
+                                <label for="od">Other Deductions :</label>
+                                <b>&#8377</b>
+                                <input type="number" name="od" id="od" placeholder="0" min = 0>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="buttonD" type="submit">Submit</button>
+                </form>
+            </div>
+
+            <!-- Exemption Details -->
+            <div id="exemptiondiv">
+                <h3><em><u>Exemption Details</u></em></h3>
+                <form action="" onsubmit="inputExemptions(); return false">
+                    <div id="ehra">
+                        <div id="head">
+                            <strong>HRA Exemption :</strong>
+                        </div>
+                        <div class = "efieldsCity">
+                            <label for="">City :</label>
+                            <div>
+                                <input type="radio" name="city" id="metro" onclick="changeCityType()"
+                                checked> Metro
+                            </div>
+                            <div>
+                                <input type="radio" name="city" id="nmetro"
+                                onclick="changeCityType()">
+                                Non-Metro
+                            </div>
+                        </div>
+                        <div class = "efields">
+                            <label for="rent">Rent Paid (/month):</label>
+                            <b>&#8377</b> <input type="number" name="rent" id="rent" placeholder="0" min = 0>
+                        </div>
+                    </div>
+                    <div class = "efields">
+                        <label for="elta"><strong>LTA Exemption (*Only On Tickets):</strong></label>
+                        <b>&#8377</b> <input type="number" name="elta" id="elta" placeholder="0" min = 0>
+                    </div>
+                    <div class = "efields">
+                        <label for="eothers">Other Exemptions :</label>
+                        <b>&#8377</b> <input type="number" name="eothers" id="eothers" placeholder="0" min = 0>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <div id="DeductionsnExemptionsdiv">
+                <h3><em><u>Deductions And Exemptions Details</u></em></h3>
+                <form action="" onsubmit="inputDnE(); return false">
+                    <div class = "DnE">
+                        <label for="nps">NPS Investment :</label>
+                        <b>&#8377</b> <input type="number" name="nps" id="nps" placeholder="0" min = 0>
+                    </div>
+                    <div class = "DnE">
+                        <label for="DnErent">Rent Paid (/month):</label>
+                        <b>&#8377</b> <input type="number" name="DnErent" id="DnErent" placeholder="0" min = 0>
+                    </div>
+                    <div class = "DnE">
+                        <label for="otherDnE">Other Deductions/Exemptions:</label>
+                        <b>&#8377</b> <input type="number" name="otherDnE" id="otherDnE" placeholder="0" min = 0>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+
+        <!-- give style to button and tax regions -->
+        <button id="taxButton" onclick="calculateTax(); return false">Calculate My Tax</button>
+
+        <hr>
+        <!-- tax info area -->
+        
+        <div id="taxArea">
+            <div>
+                <h3>*** Following are Your Tax Details ***</h4>
+            </div>
+            <div class="taxFields">
+                <strong>Total Income: </strong>
+                <b>&#8377</b>
+                <input type="number" name="totalIncome" id="totalIncome" placeholder="0" min="0">
+            </div>
+            <div class="taxFields">
+                <strong>Total Taxable Income: </strong>
+                <b>&#8377</b>
+                <input type="number" name="taxableIncome" id="taxableIncome" placeholder="0" min="0">
+            </div>
+            <div class="taxFields">
+                <strong>Total Savings(Deductions + Exemptions): </strong>
+                <b>&#8377</b>
+                <input type="number" name="savings" id="savings" placeholder="0" min="0">
+            </div>
+            <div class="taxFields">
+                <strong>Total Tax(Payable): </strong>
+                <b>&#8377</b>
+                <input type="number" name="taxAmount" id="taxAmount" placeholder="0" min="0">
+            </div>
+            <div class="taxFields">
+                <strong>Net Income After Tax Deduction: </strong>
+                <b>&#8377</b>
+                <input type="number" name="netIncome" id="netIncome" placeholder="0" min="0">
+            </div>
+        </div>
+    </div>
+    
+    <!-- footer area of the site -->
+    <footer>
+        <div id="portfoliolink">
+            About Developer[<a href="https://neerajsharma2408.github.io/portfolio/index.html">Neeraj Sharma</a>]
+        </div>
+
+        <div id="maillink">
+            For Any Suggestion or Collaboration Send a mail to the given mail link<br><a href="mailto:neesharm24@gmail">Neeraj Sharma</a>
+        </div>
+        
+        <div id="linksdiv">
+            <div id="links">
+                <a id="a1" href="https://www.flaticon.com/free-stickers/money-bag" title="money bag stickers">Money bag stickers created by Gohsantosadrive - Flaticon</a>
+                <a id="a2" href="https://www.flaticon.com/free-icons/budget" title="budget icons">Budget icons created by Freepik - Flaticon</a>
+            </div>
+            <button id="atbbutton">Attribution Links</button>
+        </div>
+    </footer>
+</body>
+
+<script type="text/javascript" src = "index.js"></script>
+
+</html>

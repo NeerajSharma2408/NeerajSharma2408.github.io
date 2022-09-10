@@ -1,0 +1,23 @@
+optimise for the less resolution devices...
+like give a drop down for choosing the tax regime
+
+color pallete for this site:
+abdca7
+248e38
+afd91a
+323232
+
+{
+    "code": 403,
+    "message": "Missing Authentication Token",
+    "timestamp": 1661408089230,
+    "transaction_id": "97469510-3d00-43b1-95fb-589798791207"
+}
+
+wrapapi --- to create your own api
+
+you can also do every calculation yourself and provide an api link to help building other sites
+postman.com is for doing the above said
+
+<a href="https://www.flaticon.com/free-stickers/money-bag" title="money bag stickers">Money bag stickers created by Gohsantosadrive - Flaticon</a> 
+for attribution of favicon
