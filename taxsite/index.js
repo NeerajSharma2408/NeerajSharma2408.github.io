@@ -268,7 +268,7 @@ function employeeStatus(){
     }
 }
 
-let ParentAge = 0; // 0 is for not applicable
+let ParentAge = 0; // 0 is for not applicable 1 for under 60 and 2 for above 60
 function checkParentAge(){
     if (document.getElementById("lt60").checked) {
         ParentAge = 1;
@@ -304,6 +304,8 @@ function changeDependentdiv(){
 changeDependentdiv();
 
 let Disability = 1; // 1 is for less than 40%-80% disability
+// 2 for greater than 80 
+// 0 for parents
 function checkDisability(){
     if (document.getElementById("fttAt").checked) {
         Disability = 1;
@@ -328,6 +330,16 @@ function checkDisability(){
 
 
 function inputExemptions(){
+    let maxExemption = 0;
+    if (age == 1) {
+        maxExemption = 250000;
+    }
+    else if (age == 2) {
+        maxExemption = 300000;
+    }
+    else{
+        maxExemption = 500000;
+    }
     ehra = 0;
     rent = 0;
     elta = 0;
@@ -335,6 +347,12 @@ function inputExemptions(){
     totalExemption = 0;
     rent = 12*Number(document.getElementById("rent").value);
     elta = Number(document.getElementById("elta").value);
+
+    if (elta > incomeDetails[2]) {
+        alert("Your Entered Lta Amount is More than Your Lta Allowance.");
+        return;
+    }
+
     eothers = Number(document.getElementById("eothers").value);
     
     totalExemption = eothers + elta;
@@ -343,11 +361,14 @@ function inputExemptions(){
     let temp = (incomeDetails[0]*metroCity*0.5) + (incomeDetails[0]*(!metroCity)*0.4);
     ehra = Math.min(temp, actualHRA);
     
-    temp = rent - (0.1*incomeDetails[0]);
+    temp = Math.abs(rent - (0.1*incomeDetails[0]));
     ehra = Math.min(temp, ehra);
     
     totalExemption = totalExemption + ehra;
-    // alert(totalExemption);
+    if (totalExemption > maxExemption) {
+        totalExemption = maxExemption;
+    }
+    // alert("total Exemption"+totalExemption);
 
     changeInputWindow(3);
 }
@@ -389,21 +410,55 @@ function inputDeductions(){
     
     if (ATCList[2] > 0) {
         totalDeductions = Number(totalDeductions) + Number(50000);
-        // here limit of ATC is increased from 1.5 l to 2 l --- so account for this too
     }
-    if (sEmployeed == 1) {
-        totalDeductions = Number(totalDeductions) + (incomeDetails[0]*0.2);
-    }
-    else{
-        totalDeductions = Number(totalDeductions) + (incomeDetails[0]*0.1);
+    if(ATCList[2] > 0){
+        if (sEmployeed == 1) {
+            totalDeductions = Number(totalDeductions) + (incomeDetails[0]*0.2);
+        }
+        else{
+            totalDeductions = Number(totalDeductions) + (incomeDetails[0]*0.1);
+        }
     }
 
     // alert(totalDeductions);
     
     // ATD
+    // let atdTemp1 = 0, atdTemp2 = 0;
     ATDList[0] = Number(document.getElementById("hip").value);
     ATDList[1] = Number(document.getElementById("mtd").value);
     
+    // atdTemp1 = ATDList[0];
+    // atdTemp2 = ATDList[1];
+
+    let maxAtd = 0;
+    if (age == 1 && ParentAge == 0) {
+        maxAtd = 25000;
+    }
+    else if(age == 1 && ParentAge == 1){
+        maxAtd = 25000;
+    }
+    else if(age == 1 && ParentAge == 2){
+        maxAtd = 50000;
+    }
+    else if((age == 2 || age == 3) && ParentAge == 0){
+        maxAtd = 50000;
+    }
+    else if((age == 2 || age == 3) && ParentAge == 1){
+        alert("Parents age is Wrong");
+        document.getElementById("gt60").checked = "True";
+        ParentAge = 2;
+        changeInputWindow(2);
+        return;
+    }
+    else if((age == 2 || age == 3) && ParentAge == 2){
+        maxAtd = 100000;
+    }
+
+    if (ATDList[0] > maxAtd) {
+        ATDList[0] = maxAtd;
+    }
+    totalDeductions = Number(totalDeductions) + ATDList[0];
+
     if (Disability == 1) {
         if (ATDList[1] < 75000) {
             totalDeductions = Number(totalDeductions) + ATDList[1];
@@ -444,6 +499,24 @@ function inputDeductions(){
         }
     }
     
+    // maxAtd = 0;
+    // if (Disability == 0) {
+    //     if (ParentAge == 1) {
+    //         maxAtd = 40000;
+    //     }
+    //     else if (ParentAge == 2) {
+    //         maxAtd = 100000;
+    //     }
+    // }
+    // else if (Disability == 1) {
+    //     maxAtd = 75000;
+    // }
+    // else if (Disability == 2) {
+    //     maxAtd = 1250000;
+    // }
+    
+    // above code is redundant
+
     // OD
     OtherDeductions[0] = Number(document.getElementById("ipel").value);
     OtherDeductions[1] = Number(document.getElementById("iphl").value);
@@ -469,7 +542,7 @@ function inputDeductions(){
     else{
         totalDeductions = Number(totalDeductions) + Number(incomeDetails[6]);
     }
-
+    // alert("total Deduction"+totalDeductions);
     changeInputWindow(3);
 }
 
@@ -504,13 +577,20 @@ function calculateTax(){
     if (!inputIncomeDetails()) {
         return;
     }
-    inputDeductions();
-    inputExemptions();
-    inputDnE();
     if (newregime == 0) {
-        totalExemption = totalExemption + 50000;
+        inputDeductions();
+        inputExemptions();
     }
-    
+    else{
+        inputDnE();
+    }
+    if (newregime == 0) {
+        totalExemption = Number(totalExemption) + 50000;
+    }
+
+    // alert(totalDeductions);
+    // alert(totalExemption);
+
     if (totalIncome < 250000) {
         alert("You Do not come under any Tax Bracket");
         return;
@@ -524,9 +604,9 @@ function calculateTax(){
         document.getElementById("savings").value = totalDnE;
 
         let totalTax = 0;
-        if (taxableIncome <= 250000) {
-            totalTax = 0;
-        }
+        // if (taxableIncome <= 250000) {
+        //     totalTax = 0;
+        // }
         if (taxableIncome > 250000) {
             if (taxableIncome >= 500000) {
                 totalTax = totalTax + 12500;
@@ -571,7 +651,9 @@ function calculateTax(){
             totalTax = totalTax + (taxableIncome-1500000)*0.30;
         }
         
-        totalTax = totalTax + totalTax*0.04; // --- cess amount
+        // cess calculation
+        let cess = totalTax*0.04; // --- cess amount
+
         // surcharge
         if (taxableIncome > 50000000) {
             totalTax = totalTax + (totalTax*0.37);
@@ -585,6 +667,8 @@ function calculateTax(){
         else if (taxableIncome > 5000000) {
             totalTax = totalTax + (totalTax*0.1);
         }
+
+        totalTax = totalTax + cess;
 
         document.getElementById("taxAmount").value = totalTax;
         document.getElementById("netIncome").value = totalIncome - totalTax;
@@ -600,9 +684,9 @@ function calculateTax(){
         document.getElementById("savings").value = totalSavings;
 
         let totalTax = 0;
-        if (taxableIncome <= 250000) {
-            totalTax = 0;
-        }
+        // if (taxableIncome <= 250000) {
+        //     totalTax = 0;
+        // }
         if (taxableIncome > 250000) {
             if (taxableIncome >= 500000) {
                 totalTax = totalTax + 12500;
@@ -624,7 +708,8 @@ function calculateTax(){
         }
 
         // cess tax
-        let cess = totalTax + totalTax*0.04; // --- cess amount
+        let cess = totalTax*0.04; // --- cess amount
+
         // surcharge
         if (taxableIncome > 10000000) {
             totalTax = totalTax + (totalTax*0.15);

@@ -18,6 +18,3 @@ wrapapi --- to create your own api
 
 you can also do every calculation yourself and provide an api link to help building other sites
 postman.com is for doing the above said
-
-<a href="https://www.flaticon.com/free-stickers/money-bag" title="money bag stickers">Money bag stickers created by Gohsantosadrive - Flaticon</a> 
-for attribution of favicon
