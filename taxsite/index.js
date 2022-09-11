@@ -593,8 +593,14 @@ function calculateTax(){
 
     if (totalIncome < 250000) {
         alert("You Do not come under any Tax Bracket");
+        document.getElementById("totalIncome").value = 0;
+        document.getElementById("taxableIncome").value = 0;
+        document.getElementById("savings").value = 0;
+        document.getElementById("taxAmount").value = 0;
+        document.getElementById("netIncome").value = 0;
         return;
     }
+
     if(newregime == 1){
         document.getElementById("totalIncome").value = totalIncome;
 
@@ -604,15 +610,26 @@ function calculateTax(){
         document.getElementById("savings").value = totalDnE;
 
         let totalTax = 0;
-        // if (taxableIncome <= 250000) {
-        //     totalTax = 0;
-        // }
+
         if (taxableIncome > 250000) {
-            if (taxableIncome >= 500000) {
-                totalTax = totalTax + 12500;
+            if(age == 1){
+                if (taxableIncome >= 500000) {
+                    totalTax = totalTax + 12500;
+                }
+                else{
+                    totalTax = totalTax + (taxableIncome-250000)*0.05;
+                }
+            }
+            else if ((age == 2) && (taxableIncome > 300000)) {
+                if (taxableIncome >= 500000) {
+                    totalTax = totalTax + 10000;
+                }
+                else{
+                    totalTax = totalTax + (taxableIncome-250000)*0.05;
+                }
             }
             else{
-                totalTax = totalTax + (taxableIncome-250000)*0.05;
+                totalTax = 0;
             }
         }
         if (taxableIncome > 500000) {

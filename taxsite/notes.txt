@@ -18,3 +18,21 @@ wrapapi --- to create your own api
 
 you can also do every calculation yourself and provide an api link to help building other sites
 postman.com is for doing the above said
+
+
+
+information sites ---
+
+https://blog.quicko.com/which-tax-regime-to-choose-old-or-new?noamp=mobile
+
+https://www.bajajfinservmarkets.in/markets-insights/income-tax/income-tax-exemptions-deductions.html#parentHorizontalTab3
+
+https://cleartax.in/s/income-tax-slabs
+
+
+
+calculators ---
+
+https://scripbox.com/plan/income-tax-calculator/#:~:text=No%2C%20income%20tax%20is%20calculated,deductions%20for%20the%20financial%20year.
+
+https://tools.quicko.com/income-tax-calculator/?_gl=1*w0s32w*_ga*NzQ4NzU4MDExLjE2NjEzNDA4NzU.*_ga_T1ER0WTD8M*MTY2MTM0MDg3NS4xLjEuMTY2MTM0MTY1MC4wLjAuMA..
