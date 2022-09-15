@@ -750,17 +750,6 @@ function calculateTax(){
 
 
 
-// function displayInfoButtons(){
-    
-    //     if (document.getElementById("infobuttons").style.display == "none") {
-        //         document.getElementById("infobuttons").style.display = "flex";
-//         document.getElementById("infobuttons").style.flexDirection = "column";
-//     }
-//     else{
-//         document.getElementById("infobuttons").style.display = "none";
-//     }
-
-
 // }
 
 // function toggleRegime(){
@@ -780,3 +769,31 @@ function calculateTax(){
 // }
 // setInterval(inputIncomeDetails(),1000); 
 // make something out of it
+
+
+
+
+
+if (window.innerWidth < "650") {
+    
+    document.getElementById("infobuttons").style.display = "none";
+
+    document.getElementById("maillink").innerHTML = "Developer's Mail Link: <a href=\"mailto:neesharm24@gmail\">Neeraj Sharma</a>";
+
+
+    document.getElementById("top_head").innerHTML = "<u>Do My Taxes</u>";
+    document.getElementById("reg_head").innerHTML = "<b>Select Regime<b>";
+}
+else{
+    document.getElementById("panelButton").style.display = "none";
+}
+
+function displayPanels(){
+
+    if (document.getElementById("infobuttons").style.display == "none") {
+        document.getElementById("infobuttons").style.display = "flex";
+    }
+    else{
+        document.getElementById("infobuttons").style.display = "none";
+    }
+}

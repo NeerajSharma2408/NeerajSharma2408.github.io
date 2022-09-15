@@ -64,9 +64,11 @@
         <div id="inputarea">
 
             <hr>
-            <!-- <div id="infoB">
-                <button onclick="displayInfoButtons()">Details Panels</button>
-            </div> -->
+            <div id="panelButton">
+                <button onclick="displayPanels()">
+                    Show Detail Panels
+                </button>
+            </div>
             <div id="infobuttons">
                 <button id="button1"class="infoButtons" onclick="changeInputWindow(-1)">&lt&lt&lt</button>
                 <button id="button2"class="infoButtons" onclick="changeInputWindow(0)">Basic Details</button>
@@ -120,21 +122,29 @@
                             </div>
                         </a>
                         <div id="field1">
-                            <div>
+                            <div class="fielddiv">
                                 <label for="salary">Basic Salary <b class="star">*</b>:</label>
-                                <b>&#8377</b> <input type="number" name="salary" id="salary" placeholder="0" min = 0>
+                                <div>
+                                    <b>&#8377</b> <input type="number" name="salary" id="salary" placeholder="0" min = 0>
+                                </div>
                             </div>
-                            <div>
+                            <div class="fielddiv">
                                 <label for="hra">HRA (House Rent Allowance):</label>
-                                <b>&#8377</b> <input type="number" name="hra" id="hra" placeholder="0" min = 0>
+                                <div>
+                                    <b>&#8377</b> <input type="number" name="hra" id="hra" placeholder="0" min = 0>
+                                </div>
                             </div>
-                            <div>
+                            <div class="fielddiv">
                                 <label for="lta">LTA (Leave Travel Allowance):</label>
-                                <b>&#8377</b> <input type="number" name="lta" id="lta" placeholder="0" min = 0>
+                                <div>
+                                    <b>&#8377</b> <input type="number" name="lta" id="lta" placeholder="0" min = 0>
+                                </div>
                             </div>
-                            <div>
+                            <div class="fielddiv">
                                 <label for="otherAllowances">Other Allowances: </label>
-                                <b>&#8377</b> <input type="number" name="otherAllowances" id="otherAllowances" placeholder="0" min = 0>
+                                <div>
+                                    <b>&#8377</b> <input type="number" name="otherAllowances" id="otherAllowances" placeholder="0" min = 0>
+                                </div>
                             </div>
                             <button id="next" onclick="expand(1);expand(2); return false">NEXT</button>
                         </div>
@@ -147,21 +157,29 @@
                             </div>
                         </a>
                         <div id="field2">
-                            <div>
+                            <div class="fielddiv">
                                 <label for="ltcg">Long Term Capital Gains: </label>
-                                <b>&#8377</b> <input type="number" name="ltcg" id="ltcg" placeholder="0" min = 0>
+                                <div>
+                                    <b>&#8377</b> <input type="number" name="ltcg" id="ltcg" placeholder="0" min = 0>
+                                </div>
                             </div>
-                            <div>
+                            <div class="fielddiv">
                                 <label for="bussinessprofits">Business Profits: </label>
-                                <b>&#8377</b> <input type="number" name="bussinessprofits" id="bussinessprofits" placeholder="0" min = 0>
+                                <div>
+                                    <b>&#8377</b> <input type="number" name="bussinessprofits" id="bussinessprofits" placeholder="0" min = 0>
+                                </div>
                             </div>
-                            <div>
+                            <div class="fielddiv">
                                 <label for="interest">Interest Earned from Savings Acc: </label>
-                                <b>&#8377</b> <input type="number" name="interest" id="interest" placeholder="0" min = 0>
+                                <div>
+                                    <b>&#8377</b> <input type="number" name="interest" id="interest" placeholder="0" min = 0>
+                                </div>
                             </div>
-                            <div>
+                            <div class="fielddiv">
                                 <label for="otherIncome">Other Income (Eg:Rental income): </label>
-                                <b>&#8377</b> <input type="number" name="otherIncome" id="otherIncome" placeholder="0" min = 0>
+                                <div>
+                                    <b>&#8377</b> <input type="number" name="otherIncome" id="otherIncome" placeholder="0" min = 0>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -196,77 +214,97 @@
                         </a>
                         <div id="ATC">
                             <div class="radioDiv">
-                                    <div>
-                                        <strong>
-                                            Employment Type :
-                                        </strong>
-                                    </div>
-                                    <!-- put it either in strong or lable tag -->
-                                    <div>
-                                        <input type="radio" name="employment" id="employees" onclick="employeeStatus()"
-                                        checked>
-                                        <label for="employment">Employee</label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" name="employment" id="semployees" onclick="employeeStatus()">
-                                        <label for="employment">Self-Employed</label>
-                                    </div>
+                                <div>
+                                    <strong>
+                                        Employment Type :
+                                    </strong>
                                 </div>
                                 <div>
-                                    <label for="ppf">Public Provident Fund (PPF) :</label>
+                                    <input type="radio" name="employment" id="employees" onclick="employeeStatus()"
+                                        checked>
+                                    <label for="employment">Employed</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="employment" id="semployees" onclick="employeeStatus()">
+                                    <label for="employment">Self-Employed</label>
+                                </div>
+                            </div>
+                            <div class="ddFields">
+                                <label for="ppf">Public Provident Fund (PPF) :</label>
+                                <div>
                                     <b>&#8377</b>
                                     <input type="number" name="ppf" id="ppf" placeholder="0" min = 0>
                                 </div>
+                            </div>
+                            <div class="ddFields">
+                                <label for="nsc">National Saving Certificate (NSC) :</label>
                                 <div>
-                                    <label for="nsc">National Saving Certificate (NSC) :</label>
-                                    <b>&#8377</b>
-                                    <input type="number" name="nsc" id="nsc" placeholder="0" min = 0>
+                                    <b>&#8377</b>           <input type="number" name="nsc" id="nsc" placeholder="0" min = 0>
                                 </div>
+                            </div>
+                            <div class="ddFields">
+                                <label for="nps">National Pension Scheme (NPS) :</label>
                                 <div>
-                                    <label for="nps">National Pension Scheme (NPS) :</label>
                                     <b>&#8377</b>
                                     <input type="number" name="nps" id="nps" placeholder="0" min = 0>
                                 </div>
+                            </div>
+                            <div class="ddFields">
+                                <label for="epf">Employees' Provident Fund (EPF) :</label>            
                                 <div>
-                                    <label for="epf">Employees' Provident Fund (EPF) :</label>
                                     <b>&#8377</b>
                                     <input type="number" name="epf" id="epf" placeholder="0" min = 0>
                                 </div>
+                            </div>
+                            <div class="ddFields">
+                                <label for="lip">Life Insurance Premium :</label>
                                 <div>
-                                    <label for="lip">Life Insurance Premium :</label>
                                     <b>&#8377</b>
                                     <input type="number" name="lip" id="lip" placeholder="0" min = 0>
                                 </div>
+                            </div>
+                            <div class="ddFields">
+                                <label for="pobd">Post Office/Bank Deposits (Min->5 years) :</label>
                                 <div>
-                                    <label for="pobd">Post Office/Bank Deposits (Min->5 years) :</label>
                                     <b>&#8377</b>
                                     <input type="number" name="pobd" id="pobd" placeholder="0" min = 0>
                                 </div>
+                            </div>
+                            <div class="ddFields">
+                                <label for="elss">Equity-Linked Saving Scheme (ELSS) :</label>
                                 <div>
-                                    <label for="elss">Equity-Linked Saving Scheme (ELSS) :</label>
                                     <b>&#8377</b>
                                     <input type="number" name="elss" id="elss" placeholder="0" min = 0>
                                 </div>
+                            </div>
+                            <div class="ddFields">
+                                <label for="ssy">Sukanya Samriddhi Yojana (SSY) :</label>
                                 <div>
-                                    <label for="ssy">Sukanya Samriddhi Yojana (SSY) :</label>
                                     <b>&#8377</b>
                                     <input type="number" name="ssy" id="ssy" placeholder="0" min = 0>
                                 </div>
+                            </div>
+                            <div class="ddFields">
+                                <label for="scss">Senior Citizen Savings Scheme (SCSS) :</label>
                                 <div>
-                                    <label for="scss">Senior Citizen Savings Scheme (SCSS) :</label>
                                     <b>&#8377</b>
                                     <input type="number" name="scss" id="scss" placeholder="0" min = 0>
                                 </div>
+                            </div>
+                            <div class="ddFields">
+                                <label for="ap">Annuity Plan (Only Contribution Made*) :</label>
                                 <div>
-                                    <label for="ap">Annuity Plan (Only Contribution Made*) :</label>
                                     <b>&#8377</b>
                                     <input type="number" name="ap" id="ap" placeholder="0" min = 0>
                                 </div>
+                            </div>
+                            <div class="ddFields">
+                                <label for="oi">Other Investments :</label>
                                 <div>
-                                    <label for="oi">Other Investments :</label>
                                     <b>&#8377</b>
                                     <input type="number" name="oi" id="oi" placeholder="0" min = 0>
                                 </div>
+                            </div>
                             <button class="nextB" onclick="changeDeductionPanels(1); changeDeductionPanels(2);return false">NEXT</button>
                         </div>
                     </div>
@@ -278,10 +316,12 @@
                             </div>
                         </a>
                         <div id="ATD">
-                            <div>
+                            <div class="ddFields">
                                 <label for="hip">Health Insurance Premium Paid :</label>
-                                <b>&#8377</b>
-                                <input type="number" name="hip" id="hip" placeholder="0" min = 0>
+                                <div>
+                                    <b>&#8377</b>
+                                    <input type="number" name="hip" id="hip" placeholder="0" min = 0>
+                                </div>
                             </div>
                             <div  class="radioDiv">
                                 <div>
@@ -357,25 +397,33 @@
                             </div>
                         </a>
                         <div id="OtherDeductions">
-                            <div>
+                            <div class="ddFields">
                                 <label for="ipel">Interest Paid on Education Loans :</label>
-                                <b>&#8377</b>
-                                <input type="number" name="ipel" id="ipel" placeholder="0" min = 0>
+                                <div>
+                                    <b>&#8377</b>
+                                    <input type="number" name="ipel" id="ipel" placeholder="0" min = 0>
+                                </div>
                             </div>
-                            <div>
+                            <div class="ddFields">
                                 <label for="iphl">Interest Paid on Home Loans :</label>
-                                <b>&#8377</b>
-                                <input type="number" name="iphl" id="iphl" placeholder="0" min = 0>
+                                <div>
+                                    <b>&#8377</b>
+                                    <input type="number" name="iphl" id="iphl" placeholder="0" min = 0>
+                                </div>
                             </div>
-                            <div>
+                            <div class="ddFields">
                                 <label for="cc">Charitable Contributions :</label>
-                                <b>&#8377</b>
-                                <input type="number" name="cc" id="cc" placeholder="0" min = 0>
+                                <div>
+                                    <b>&#8377</b>
+                                    <input type="number" name="cc" id="cc" placeholder="0" min = 0>
+                                </div>
                             </div>
-                            <div>
+                            <div class="ddFields">
                                 <label for="od">Other Deductions :</label>
-                                <b>&#8377</b>
-                                <input type="number" name="od" id="od" placeholder="0" min = 0>
+                                <div>
+                                    <b>&#8377</b>
+                                    <input type="number" name="od" id="od" placeholder="0" min = 0>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -392,29 +440,36 @@
                             <strong>HRA Exemption :</strong>
                         </div>
                         <div class = "efieldsCity">
-                            <label for="">City :</label>
+                            <label for="">City:</label>
                             <div>
                                 <input type="radio" name="city" id="metro" onclick="changeCityType()"
-                                checked> Metro
+                                checked> 
+                                <label for="city">Metro</label>
                             </div>
                             <div>
                                 <input type="radio" name="city" id="nmetro"
                                 onclick="changeCityType()">
-                                Non-Metro
+                                <label for="city">Non-Metro</label>
                             </div>
                         </div>
                         <div class = "efields">
                             <label for="rent">Rent Paid (/month):</label>
-                            <b>&#8377</b> <input type="number" name="rent" id="rent" placeholder="0" min = 0>
+                            <div>
+                                <b>&#8377</b> <input type="number" name="rent" id="rent" placeholder="0" min = 0>
+                            </div>
                         </div>
                     </div>
                     <div class = "efields">
                         <label for="elta"><strong>LTA Exemption (*Only On Tickets):</strong></label>
-                        <b>&#8377</b> <input type="number" name="elta" id="elta" placeholder="0" min = 0>
+                        <div>
+                            <b>&#8377</b> <input type="number" name="elta" id="elta" placeholder="0" min = 0>
+                        </div>
                     </div>
                     <div class = "efields">
                         <label for="eothers">Other Exemptions :</label>
-                        <b>&#8377</b> <input type="number" name="eothers" id="eothers" placeholder="0" min = 0>
+                        <div>
+                            <b>&#8377</b> <input type="number" name="eothers" id="eothers" placeholder="0" min = 0>
+                        </div>
                     </div>
                     <button type="submit">Submit</button>
                 </form>
@@ -425,15 +480,21 @@
                 <form action="" onsubmit="inputDnE(); return false">
                     <div class = "DnE">
                         <label for="nps">NPS Investment :</label>
-                        <b>&#8377</b> <input type="number" name="nps" id="nps" placeholder="0" min = 0>
+                        <div>
+                            <b>&#8377</b> <input type="number" name="nps" id="nps" placeholder="0" min = 0>
+                        </div>
                     </div>
                     <div class = "DnE">
                         <label for="DnErent">Rent Paid (/month):</label>
-                        <b>&#8377</b> <input type="number" name="DnErent" id="DnErent" placeholder="0" min = 0>
+                        <div>
+                            <b>&#8377</b> <input type="number" name="DnErent" id="DnErent" placeholder="0" min = 0>
+                        </div>
                     </div>
                     <div class = "DnE">
                         <label for="otherDnE">Other Deductions/Exemptions:</label>
-                        <b>&#8377</b> <input type="number" name="otherDnE" id="otherDnE" placeholder="0" min = 0>
+                        <div>
+                            <b>&#8377</b> <input type="number" name="otherDnE" id="otherDnE" placeholder="0" min = 0>
+                        </div>
                     </div>
                     <button type="submit">Submit</button>
                 </form>
@@ -453,28 +514,39 @@
             </div>
             <div class="taxFields">
                 <strong>Total Income: </strong>
-                <b>&#8377</b>
-                <input type="number" name="totalIncome" id="totalIncome" placeholder="0" min="0" disabled>
+
+                <div>
+                    <b>&#8377</b>
+                    <input type="number" name="totalIncome" id="totalIncome" placeholder="0" min="0" disabled>
+                </div>
             </div>
             <div class="taxFields">
                 <strong>Total Taxable Income: </strong>
-                <b>&#8377</b>
-                <input type="number" name="taxableIncome" id="taxableIncome" placeholder="0" min="0" disabled>
+                <div>
+                    <b>&#8377</b>
+                    <input type="number" name="taxableIncome" id="taxableIncome" placeholder="0" min="0" disabled>
+                </div>
             </div>
             <div class="taxFields">
                 <strong>Total Savings(Deductions + Exemptions): </strong>
-                <b>&#8377</b>
-                <input type="number" name="savings" id="savings" placeholder="0" min="0" disabled>
+                <div>
+                    <b>&#8377</b>
+                    <input type="number" name="savings" id="savings" placeholder="0" min="0" disabled>
+                </div>
             </div>
             <div class="taxFields">
                 <strong>Total Tax(Payable): </strong>
-                <b>&#8377</b>
-                <input type="number" name="taxAmount" id="taxAmount" placeholder="0" min="0" disabled>
+                <div>
+                    <b>&#8377</b>
+                    <input type="number" name="taxAmount" id="taxAmount" placeholder="0" min="0" disabled>
+                </div>
             </div>
             <div class="taxFields">
                 <strong>Net Income After Tax Deduction: </strong>
-                <b>&#8377</b>
-                <input type="number" name="netIncome" id="netIncome" placeholder="0" min="0" disabled>
+                <div>
+                    <b>&#8377</b>
+                    <input type="number" name="netIncome" id="netIncome" placeholder="0" min="0" disabled>
+                </div>
             </div>
         </div>
     </div>
