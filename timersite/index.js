@@ -1,6 +1,9 @@
 let images = ["zero","one","two","three","four","five","six","seven","eight","nine"];
 let time = [0,0,0]; // hh:mm:ss
-let imageTagIDS = ["hrsTens","hrsOnes","minTens","minOnes","secTens","secOnes"]
+let imageTagIDS = ["hrsTens","hrsOnes","minTens","minOnes","secTens","secOnes"];
+
+let audio = ["./clock.wav", "./timerStop1.wav", "./timerStop2.wav"]
+
 let p = 0;
 function moveUp(pos){
     let modulo = 60;
@@ -57,10 +60,7 @@ function updateTime(Time, Pos){
     document.getElementById(idName).src = source;
 }
 
-// you can also make text input for direct time taking
-
 let start = 0;
-// let interval = 1000;
 
 function startAndStop(alrt){
     
@@ -73,7 +73,13 @@ function startAndStop(alrt){
     }
     
     document.getElementById("startstopButton").innerHTML = "Stop";
+
+    let clockSound = new Audio(audio[0]);
+    // let timerSound1 = new Audio(audio[1]);
+    let timerSound2 = new Audio(audio[2]);
+
     var myInterval = setInterval(()=>{
+        clockSound.play();
         if (start==1 && time[2] > 0) {
             moveDown(2);
         }
@@ -87,6 +93,9 @@ function startAndStop(alrt){
             moveDown(2);
         }
         else{
+            clockSound.pause();
+            // timerSound1.play();
+            timerSound2.play();
             clearInterval(myInterval);
             document.getElementById("startstopButton").innerHTML = "Start";
         }
@@ -121,5 +130,3 @@ function takeTime(){
     updateTime(time[1],1);
     updateTime(time[2],2);
 }
-
-// add form functionality

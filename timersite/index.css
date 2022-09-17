@@ -1,6 +1,12 @@
 body{
     margin: auto;
-    padding: 10% 15% 0% 15%;
+    padding: 0% 15% 0% 15%;
+}
+
+#heading{
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
 }
 
 #inputDiv{
@@ -29,12 +35,16 @@ body{
 #mainDiv{
     display: flex;
     margin: auto;
+    border: solid 2px;
+    border-radius: 5px;
+    padding: 5px 15px;
 }
 #mainDiv div{
     margin: 1%;
 }
 #mainDiv span{
     margin: auto 1%;
+    font-size: xx-large;
 }
 .digits{
     display: flex;
@@ -88,7 +98,7 @@ body{
 @media (min-width: 1401px){
     body{
         margin: auto;
-        padding: 5% 30% 0% 30%;
+        padding: 2% 30% 0% 30%;
     }
 
     #inputDiv{
@@ -98,6 +108,9 @@ body{
         font-size: xx-large;
     }
     #inputDiv div input{
+        font-size: xx-large;
+    }
+    #inputDiv button{
         font-size: xx-large;
     }
 
