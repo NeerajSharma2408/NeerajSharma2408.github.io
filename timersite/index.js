@@ -95,7 +95,9 @@ function startAndStop(alrt){
         else{
             clockSound.pause();
             // timerSound1.play();
-            timerSound2.play();
+            if (alrt != 0 && start == 1) {
+                timerSound2.play();
+            }
             clearInterval(myInterval);
             document.getElementById("startstopButton").innerHTML = "Start";
         }
