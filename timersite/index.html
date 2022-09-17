@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Down App</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div id="inputDiv">
+        <form action="" onsubmit="takeTime();return false">
+            <div>
+                <label for="h">Hours: </label>
+                <input type="number" name="h" id="h" placeholder="0" min="0" max="24">
+            </div>
+            <div>
+                <label for="m">Minutes: </label>
+                <input type="number" name="m" id="m" placeholder="0" min="0" max="59">
+            </div>
+            <div>
+                <label for="s">Seconds: </label>
+                <input type="number" name="s" id="s" placeholder="0" min="0" max="59">
+            </div>
+            <div>
+                <button type="submit">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+    <div id="mainDiv">
+        <div class="digits">
+            <button onclick="moveUp(0)">
+                <img class="arrows" src="./up-chevron.png" alt="upArrow">
+            </button>
+            <div id="hours">
+                <img id="hrsTens" class="time" src="./zero.png" alt="Img">
+
+                <img id="hrsOnes" class="time" src="./zero.png" alt="Img">
+            </div>
+            <button onclick="moveDown(0)">
+                <img class="arrows" src="./down-chevron.png" alt="downArrow">
+            </button>
+        </div>  
+        <span class="colon">:</span>
+        <div class="digits">
+            <button onclick="moveUp(1)">
+                <img class="arrows" src="./up-chevron.png" alt="upArrow">
+            </button>
+            <div id="minutes">
+                <img id="minTens"class="time" src="./zero.png" alt="Img">
+                
+                <img id="minOnes" class="time" src="./zero.png" alt="Img">
+            </div>
+            <button onclick="moveDown(1)">
+                <img class="arrows" src="./down-chevron.png" alt="downArrow">
+            </button>
+        </div>
+        <span class="colon">:</span>
+        <div class="digits">
+            <button onclick="moveUp(2)">
+                <img class="arrows" src="./up-chevron.png" alt="upArrow">
+            </button>
+            <div id="seconds">
+                <img id="secTens" class="time" src="./zero.png" alt="Img">
+                
+                <img id="secOnes" class="time" src="./zero.png" alt="Img">
+            </div>
+            <button onclick="moveDown(2)">
+                <img class="arrows" src="./down-chevron.png" alt="downArrow">
+            </button>
+        </div>      
+    </div>
+    <div id="buttonDiv">
+        <button id="startstopButton" onclick="startAndStop(1)">
+            Start
+        </button>
+        <button id="reset" onclick="reset()">
+            Reset
+        </button>
+    </div>
+</body>
+<script src="./index.js"></script>
+</html>
